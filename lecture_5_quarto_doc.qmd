@@ -1,0 +1,44 @@
+---
+title: "lecture_5_quarto_doc.qmd"
+author: "Aditi Kesarwani"
+date: today
+format: 
+  html:
+    embed-resources: true
+---
+
+##First a review of markdown
+
+As a reminder, we can make text **bold** with two stars, or *italics* with one star.
+
+## Next I'll load my librareis so I can do stuff with ggplot2
+
+```{r}
+# warnings: false
+library(ggplot2)
+```
+
+## Now I'll include a ggplot 
+```{r}
+ggplot(data = midwest) +
+  geom_point(
+    mapping = aes(
+      x = percollege, 
+      y = percadultpoverty,
+      color = state)
+  ) + 
+  labs(
+    title = "Percent College Educated versus Poverty Rates", #plot title
+    x = "Percentage of College Educated Adults", #x-asix label
+    y = "State" #y axis label
+  )
+```
+
+##Code in paragraphs
+
+Reminder on how to calculate values and put them in paragraphs
+```{r}
+num_counties = nrow(midwest)
+```
+
+There were `r num_counties` counties in our dataset.
